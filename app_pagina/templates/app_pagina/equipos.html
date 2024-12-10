@@ -1,0 +1,73 @@
+{% extends "app_pagina/base.html" %}
+{% load static %}
+
+{% block title %}
+F R N | Equipos
+{% endblock %}
+
+{% block content %}
+<section class="page-section cta" id="mainNav" style="background-color: rgba(15, 40, 15, 0.65);">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-9 mx-auto">
+                <div class="cta-inner bg-faded text-center rounded" id="mainNav" style="background-color: rgba(255, 255, 255, 0.65);">
+                    <h2 class="section-heading mb-4">
+                        <span class="section-heading-upper">Si queres participar inscríbete!!</span>
+                    </h2>
+                    <p class="mb-0 fw-bold">Aquí podrás ver todos los equipos, dt y jugadores que desean la gloria eterna</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="cta-inner bg-faded text-center text-faded d-none d-lg-block" style="background-color: rgba(15, 40, 15, 0.65);">
+  <h2>Equipos</h2>
+    <!-- Formulario de búsqueda -->
+    <div class="d-flex flex-column align-items-center mb-2">
+      <form action="" method="GET">
+        <input type="text" name="q" placeholder="Buscar..." required>
+        <button type="submit" class="btn" style="background-color: rgba(200, 200, 200, 1);">Buscar</button> 
+        <a href="{% url 'formulario-equipos' %}" class="btn" style="background-color: rgba(200, 200, 200, 1);">Agregar</a>
+      </form>
+    </div>
+</div>
+
+<div class="cta-inner bg-faded text-center rounded" id="mainNav" style="background-color: transparent;">
+    <h1 class="section-heading mb-10"> 
+        <span class="site-heading-lower text-primary fw-bold ">
+            <div class="container my-4" id="mainNav" style="background-color: rgba(255, 255, 255, 0.65);">
+              <div class="row justify-content-center">
+                <table class="table table-striped table-bordered">
+                    <thead class="fs-5 text-start">
+                      <tr class="table-custom">
+                        <th scope="col">Equipo</th>
+                        <th scope="col">DT</th>
+                        <th scope="col">J1</th>
+                        <th scope="col">J2</th>
+                        <th scope="col">J3</th>
+                        <th scope="col">J4</th>
+                        <th scope="col">J5</th>
+                      </tr>
+                    </thead>
+                    <tbody class="fs-6 text-start">
+                        {% for equip in equipo %}
+                      <tr class="table-success">
+                        <td>{{equip.nombre_equipo}}</td>
+                        <td>{{equip.nombre_tecnico}}</td>
+                        <td>{{equip.jugador1}}</td>
+                        <td>{{equip.jugador2}}</td>
+                        <td>{{equip.jugador3}}</td>
+                        <td>{{equip.jugador4}}</td>
+                        <td>{{equip.jugador5}}</td>
+                        {% endfor %}
+                      </tr>
+            
+                    </tbody>
+                </table>
+              </div>
+            </div>
+        </span>
+    </h1> 
+</div>
+{% endblock  %}
